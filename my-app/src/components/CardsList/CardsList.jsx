@@ -1,27 +1,11 @@
-import { useFetch } from "../../hooks/useFetch";
+import styles from "./CardsList.module.scss";
+import { CardItem } from "../CardItem/CardItem";
 
-export const CardsList = () => {
-  const { data, isLoading, error } = useFetch(
-    "https://fakestoreapi.com/products"
-  );
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
+export const CardsList = ({ products }) => {
   return (
-    <div>
-      Cards list
-      {data?.length > 0 ? (
-        data.map((item) => (
-          <div key={item.id}>
-            <p>{item.title}</p>
-          </div>
-        ))
+    <div className={styles.cardsList}>
+      {products?.length > 0 ? (
+        products.map((item) => <CardItem key={item.id} card={item} />)
       ) : (
         <div>No items found</div>
       )}

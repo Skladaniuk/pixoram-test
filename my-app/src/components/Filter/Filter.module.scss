@@ -1,0 +1,25 @@
+.filter {
+  margin-bottom: 20px;
+  text-align: center;
+
+  &__dropdown {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filter__dropdown {
+    width: 100%;
+  }
+}
